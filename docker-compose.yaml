@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  daily-image:
+  web:
     build: .
-    command: bash -c "python manage.py runserver 0.0.0.0:8888"
+    command: sh -c "python manage.py runserver 0.0.0.0:8888"
     volumes:
       - daily-image-volume:/app
     ports:
