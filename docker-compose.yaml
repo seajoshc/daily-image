@@ -5,8 +5,8 @@ services:
     build: .
     command: sh -c "python manage.py runserver 0.0.0.0:8888"
     volumes:
-      - daily-image-volume:/app
+      - data:/app
     ports:
       - 8888:8888
 volumes:
-  daily-image-volume:
+  data:
