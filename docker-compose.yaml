@@ -5,7 +5,8 @@ services:
     build: .
     command: sh -c "python manage.py runserver 0.0.0.0:8888"
     volumes:
-      - data:/app
+      - .:/app
+      - data:/app/images, /app/db.sqlite3
     ports:
       - 8888:8888
 volumes:
