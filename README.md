@@ -4,6 +4,8 @@ A daily image.
 
 ## Scripts
 
+`python manage.py runserver`
+
 ### Migrations
 
 ```
