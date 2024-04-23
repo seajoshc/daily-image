@@ -9,10 +9,10 @@ A daily image.
 ### Migrations
 
 ```
-docker exec -it daily-image bash -c "python manage.py makemigrations && python manage.py migrate"
+docker exec -it daily-image-web-1 sh "python manage.py makemigrations && python manage.py migrate"
 ```
 
-or just `docker exec -it daily-image bash` and then
+or just `docker exec -it daily-image-web-1 sh` and then
 
 ```bash
 python manage.py makemigrations && python manage.py migrate
