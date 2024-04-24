@@ -5,6 +5,6 @@ app_name = "images"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("<int:image_id>/", views.image_detail, name="image_detail"),
+    path("<int:image_id>/", views.detail, name="detail"),
     path("search/", views.search, name="search"),
 ]
