@@ -2,8 +2,8 @@ from django.shortcuts import render
 from .models import Image
 
 def index(request):
-    # Get most recent image and display it on the home page
-    image = Image.objects.latest('date_taken')
+    # Get image that has is_current_image set to True
+    image = Image.objects.filter(is_current_image=True).first()
     return render(request, 'index.html', {'image': image})
 
 def detail(request, image_id):
