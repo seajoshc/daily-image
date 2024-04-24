@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Image</title>
+</head>
+<body>
+    <h2>{{ image.name }} </h2>
+    <p>{{ image.description }}</p>
+    <table>
+        <tr>
+            <td>Labels</td>
+            <td>{{ image.labels }}</td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>{{ image.location }}</td>
+        </tr>
+        <tr>
+            <td>Date Taken</td>
+            <td>{{ image.date_taken }}</td>
+        </tr>
+    <img src="{{ image.image.url }}" alt="{{ image.description }}" />
+</body>
+</html>
