@@ -3,7 +3,7 @@ from django.utils import timezone
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to="data/")
+    image = models.ImageField(upload_to="media/")
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     date_taken = models.DateField(default=timezone.now)
