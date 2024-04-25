@@ -14,3 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the current directory contents into the container at /code
 COPY . /app/
+
+CMD gunicorn daily_image.wsgi:application --bind 0.0.0.0:8000
