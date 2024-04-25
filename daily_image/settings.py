@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config, Csv
+from dotenv import load_dotenv
+
+
+# Load environment variables from a file
+ENVIRONMENT = os.getenv("ENVIRONMENT", default="dev")
+env_file = f".env.{ENVIRONMENT}"
+load_dotenv(dotenv_path=env_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +29,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-&rdetwzw89(z127q&n#zyt7s*9r(ypjojobh+jyfs^2ns6tdd1"
+# SECRET_KEY = "django-insecure-&rdetwzw89(z127q&n#zyt7s*9r(ypjojobh+jyfs^2ns6tdd1"
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
 
 # Application definition
@@ -38,7 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'django_extensions',
+    "django_extensions",
     "images",
 ]
 
