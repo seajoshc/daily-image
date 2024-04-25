@@ -4,11 +4,11 @@ services:
   web:
     build: .
     image: daily-image-web:latest
-    command: gunicorn daily_image.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn daily_image.wsgi:application --bind 0.0.0.0:8888
     volumes:
       - data:/app
     ports:
-      - 8000:8000
+      - 8888:8888
     environment:
       - ENVIRONMENT=${ENVIRONMENT}
     restart: unless-stopped
