@@ -6,6 +6,7 @@ services:
     image: daily-image-web:latest
     command: gunicorn daily_image.wsgi:application --bind 0.0.0.0:8888
     volumes:
+      - database:/app/db.sqlite3
       - staticfiles:/app/static
       - mediafiles:/app/media
     ports:
@@ -14,5 +15,6 @@ services:
       - ENVIRONMENT=${ENVIRONMENT}
     restart: unless-stopped
 volumes:
+  database:
   staticfiles:
   mediafiles:
