@@ -9,5 +9,7 @@ services:
       - data:/app
     ports:
       - 8000:8000
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT}
 volumes:
   data:
